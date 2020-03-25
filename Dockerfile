@@ -48,6 +48,7 @@ RUN      buildDeps="autoconf \
                     libavahi-client-dev \
                     libavahi-common-dev \
                     libopus-dev \
+                    libva-dev \
                     zlib1g-dev" && \
         apt-get -yqq update && \
         apt-get install -yq --no-install-recommends ${buildDeps}
@@ -84,6 +85,7 @@ RUN \
         --enable-nonfree \
         --enable-libopus \
         --enable-postproc \
+        --enable-vaapi \
         --extra-cflags="-I${PREFIX}/ -I/usr/local/ndi/include" \
         --extra-ldflags="-L${PREFIX}/lib -L/usr/local/ndi/lib/x86_64-linux-gnu" \
         --extra-libs=-ldl \
