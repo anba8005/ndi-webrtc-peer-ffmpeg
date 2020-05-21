@@ -1,0 +1,9 @@
+download https://github.com/FFmpeg/FFmpeg/archive/n4.1.5.zip
+
+1. copy NDI includes and lib to /usr/local/
+2. link /usr/local/lib/libndi.4.dylib to libndi.dylib
+3. brew install x264. 
+4. run build script
+
+p.s. no opus support
+

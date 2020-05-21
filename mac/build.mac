@@ -1,0 +1,20 @@
+# force static linking
+rm /usr/local/lib/libx264*dylib
+rm /usr/local/opt/x264/lib/libx264*dylib
+
+./configure \
+        --disable-debug \
+        --disable-doc \
+        --disable-ffplay \
+        --disable-ffprobe \
+        --enable-libndi_newtek \
+        --enable-static \
+        --disable-lzma \
+        --disable-shared \
+        --enable-gpl \
+        --enable-libx264 \
+        --enable-nonfree \
+        --enable-postproc
+make -j5
+strip ffmpeg
+
