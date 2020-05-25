@@ -5,7 +5,7 @@
 # https://hub.docker.com/r/jrottenberg/ffmpeg/
 #
 #
-FROM        ubuntu:19.10 AS base
+FROM        ubuntu:focal AS base
 
 WORKDIR     /tmp/workdir
 
@@ -26,6 +26,8 @@ ENV         FFMPEG_VERSION=4.1.5 \
             SRC=/usr/local
 
 ADD ["NDI SDK for Linux", "/usr/local/ndi/"]
+
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN      buildDeps="autoconf \
                     automake \
@@ -79,13 +81,13 @@ RUN \
         --enable-libndi_newtek \
         --enable-static \
         --disable-shared \
-        --enable-avresample \
         --enable-gpl \
         --enable-libx264 \
         --enable-nonfree \
         --enable-libopus \
         --enable-postproc \
         --enable-vaapi \
+        --enable-runtime-cpudetect \
         --extra-cflags="-I${PREFIX}/ -I/usr/local/ndi/include" \
         --extra-ldflags="-L${PREFIX}/lib -L/usr/local/ndi/lib/x86_64-linux-gnu" \
         --extra-libs=-ldl \
