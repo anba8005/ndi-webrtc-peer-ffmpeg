@@ -66,6 +66,18 @@ RUN \
         make install && \
         rm -rf ${DIR}
 
+RUN \
+        DIR=/tmp/ffnvcodec && \
+        mkdir -p ${DIR} && \
+        cd ${DIR} && \
+        git clone https://github.com/FFmpeg/nv-codec-headers.git && \
+        cd nv-codec-headers && \
+        make && \
+        make install && \
+        rm -rf ${DIR}
+
+
+
 RUN  \
         DIR=/tmp/ffmpeg && mkdir -p ${DIR} && cd ${DIR} && \
         curl -sLO https://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.bz2 && \
@@ -86,6 +98,7 @@ RUN \
         --enable-nonfree \
         --enable-libopus \
         --enable-postproc \
+        --enable-nvenc \
         --enable-vaapi \
         --enable-runtime-cpudetect \
         --extra-cflags="-I${PREFIX}/ -I/usr/local/ndi/include" \
