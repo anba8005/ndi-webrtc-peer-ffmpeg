@@ -19,9 +19,7 @@ ARG        LD_LIBRARY_PATH=/opt/ffmpeg/lib
 ARG        PREFIX=/opt/ffmpeg
 ARG        MAKEFLAGS="-j4"
 
-ENV         FFMPEG_VERSION=4.1.5 \
-            FDKAAC_VERSION=0.1.6 \
-            OPUS_VERSION=1.3.1 \
+ENV         FFMPEG_VERSION=4.1.8 \
             X264_VERSION=20191217-2245-stable \
             SRC=/usr/local
 
