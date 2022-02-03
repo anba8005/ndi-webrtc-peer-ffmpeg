@@ -44,6 +44,7 @@ RUN      buildDeps="autoconf \
                     nasm \
                     perl \
                     pkg-config \
+                    libsrt-dev \
                     python \
                     libssl-dev \
                     yasm \
@@ -101,6 +102,8 @@ RUN \
         --enable-nvenc \
         --enable-vaapi \
         --enable-runtime-cpudetect \
+        --enable-protocol='file,udp,rtp,srt' \
+        --enable-libsrt \
         --extra-cflags="-I${PREFIX}/ -I/usr/local/ndi/include" \
         --extra-ldflags="-L${PREFIX}/lib -L/usr/local/ndi/lib/x86_64-linux-gnu" \
         --extra-libs=-ldl \
